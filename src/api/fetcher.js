@@ -1,4 +1,4 @@
-const URL_JSONPlaceholder = "https://jsonplaceholder.typicode.com";
+const BASE_URL_JSON_PLACE_HOLDER = "https://jsonplaceholder.typicode.com";
 
 export const fetchData = async (url) => {
     const res = await fetch(url);
@@ -11,4 +11,4 @@ export const fetchData = async (url) => {
 }
 
 
-export const apiFetcherForJSONPlaceholder = (path) => fetchData(`${URL_JSONPlaceholder}${path}`);
+export const apiFetcherForJSONPlaceholder = (path) => fetchData(`${BASE_URL_JSON_PLACE_HOLDER}${path}`);
