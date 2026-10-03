@@ -4,6 +4,7 @@ import { SWRConfig } from 'swr'
 import './index.css'
 import App from './App.jsx'
 import { apiFetcherForJSONPlaceholder } from './api/fetcher.js'
+import {BrowserRouter} from "react-router-dom";
 
 
 createRoot(document.getElementById('root')).render(
@@ -12,7 +13,9 @@ createRoot(document.getElementById('root')).render(
         fetcher: apiFetcherForJSONPlaceholder,
         revalidateOnFocus: false
     }}>
-      <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
     </SWRConfig>
   </StrictMode>,
 )
