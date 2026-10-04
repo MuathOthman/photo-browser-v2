@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const PhotoActionBar = ({ title }) => {
+const PhotoActionBar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [copied, setCopied] = useState(false);
