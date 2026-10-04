@@ -1,10 +1,12 @@
 import PhotoGrid from "../components/PhotoGrid.jsx";
 import {useInfinitePhotos} from "../hooks/useInfinitePhotos.js";
+import FeaturedPhoto from "./FeaturedPhoto.jsx";
 
 const PhotoListPage = () => {
     const {photos, error, isLoading, isLoadingMore, hasMore, loadMore} = useInfinitePhotos();
     return (
         <>
+            <FeaturedPhoto />
             <div>
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error: {error.message}</p>}
