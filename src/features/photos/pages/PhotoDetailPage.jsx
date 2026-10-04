@@ -24,6 +24,7 @@ const PhotoDetailPage = () => {
                     width={1200}
                     height={800}
                     className="w-full rounded-2xl bg-neutral-200 dark:bg-neutral-800"
+                    fetchPriority="high"
                 />
 
                 {error && <p className="mt-6 text-neutral-500">Couldn't load this photo.</p>}
