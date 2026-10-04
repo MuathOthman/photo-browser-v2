@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import HeroBanner from '../../../components/HeroBanner';
-import { useUser } from '../../users/hooks/useUser';
-import { fullUrl } from '../../../utils/images';
+import HeroBanner from '../../../components/HeroBanner.jsx';
+import { useUser } from '../../users/hooks/useUser.js';
+import { fullUrl } from '../../../utils/images.js';
 import {usePhotoWithAlbum} from "../hooks/usePhotoWithAlbum.js";
 
 const TOTAL_PHOTOS = 5000;
