@@ -89,10 +89,6 @@ src/
     └── users/     pages and hooks for users
 e2e/               Playwright end-to-end tests
 ```
-
-## Design decisions
-
-
 ## Deployment
 
 Deployed on **Vercel**. Because the app handles routing in the browser, `vercel.json` rewrites every path to `index.html`, so links like `/photos/42` work when opened directly or refreshed:
@@ -101,7 +97,5 @@ Deployed on **Vercel**. Because the app handles routing in the browser, `vercel.
 { "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
 ```
 
-## Known limitations and next steps
-
-
 ## Use of AI
+I used Claude (Anthropic) as a learning and coding assistant during development, and I can explain every part of the code. The Playwright E2E tests were written by Claude; I set them up, ran them and reviewed them.
