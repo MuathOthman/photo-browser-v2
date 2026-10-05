@@ -6,7 +6,7 @@ describe('initials', () => {
         expect(initials('Muath Othman')).toBe('MO');
     });
 
-    it('skips titles like "Mrs."', () => {
-        expect(initials('Mrs. Mikko Räsänen')).toBe('MR');
+    it('skips titles like "Mr."', () => {
+        expect(initials('Mr. Mikko Räsänen')).toBe('MR');
     });
 });
