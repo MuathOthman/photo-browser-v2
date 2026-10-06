@@ -5,6 +5,7 @@ const PhotoActionBar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [copied, setCopied] = useState(false);
+    const [failed, setFailed] = useState(false);
 
     const goBack = () => {
         if (location.key === 'default') {
@@ -17,9 +18,14 @@ const PhotoActionBar = () => {
     const share = async () => {
         const url = window.location.href;
 
-        await navigator.clipboard.writeText(url);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        try {
+            await navigator.clipboard.writeText(url);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch {
+            setFailed(true);
+            setTimeout(() => setFailed(false), 2000);
+        }
     };
 
     return (
@@ -36,7 +42,7 @@ const PhotoActionBar = () => {
                 onClick={share}
                 className="h-12 min-w-[220px] rounded-full bg-share px-6 font-semibold text-white hover:brightness-110"
             >
-                {copied ? 'Link copied' : 'Share'}
+                {copied ? 'Link copied' : failed ? "Couldn't copy link" : 'Share'}
             </button>
         </div>
     );

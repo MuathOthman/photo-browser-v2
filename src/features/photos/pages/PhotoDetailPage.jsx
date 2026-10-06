@@ -1,16 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
-import { usePhoto } from '../hooks/usePhoto';
-import { useAlbum } from '../../albums/hooks/useAlbum';
 import { useUser } from '../../users/hooks/useUser';
 import { fullUrl } from '../../../utils/images';
 import NotFoundPage from '../../../pages/NotFoundPage';
 import PhotoActionBar from "../components/PhotoActionBar.jsx";
+import {usePhotoWithAlbum} from "../hooks/usePhotoWithAlbum.js";
 
 const PhotoDetailPage = () => {
     const { id } = useParams();
 
-    const { data: photo, error } = usePhoto(id);
-    const { data: album } = useAlbum(photo?.albumId);
+    const { data: photo, error } = usePhotoWithAlbum(id);
+    const album = photo?.album;
     const { data: user } = useUser(album?.userId);
 
     if (error?.status === 404) return <NotFoundPage />;
