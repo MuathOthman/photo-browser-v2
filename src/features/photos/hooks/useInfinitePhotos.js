@@ -8,7 +8,7 @@ const getKey = (pageIndex, previousPageData) => {
 }
 
 export const useInfinitePhotos = () => {
-    const { data, error, isLoading, size, setSize } = useSWRInfinite(getKey, {
+    const { data, error, isLoading, size, setSize, mutate } = useSWRInfinite(getKey, {
         revalidateFirstPage: false,
     });
 
@@ -16,6 +16,7 @@ export const useInfinitePhotos = () => {
     const isLoadingMore = !error && (isLoading || (data && data[size - 1] === undefined));
     const hasMore = !data || data[data.length - 1].length === LIMIT;
     const loadMore = () => setSize((s) => s + 1);
+    const retry = () => mutate();
 
-    return { photos, error, isLoading, isLoadingMore, hasMore, loadMore };
+    return { photos, error, isLoading, isLoadingMore, hasMore, loadMore, retry };
 }
