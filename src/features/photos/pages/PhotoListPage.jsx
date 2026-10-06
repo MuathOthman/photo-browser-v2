@@ -13,7 +13,7 @@ const PhotoListPage = () => {
                 {photos.length > 0 && <PhotoGrid photos={photos} />}
             </div>
 
-            {error ? (
+            {isLoading ? null : error ? (
                 <div role="alert" className="flex flex-col items-center gap-3 py-8">
                     <p className="text-neutral-500">Couldn't load photos.</p>
                     <button
